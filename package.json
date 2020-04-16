@@ -41,8 +41,6 @@
     "download": "./bin/download",
     "import": "./bin/start",
     "parallel": "./bin/parallel",
-    "test": "NODE_ENV=test npm run units",
-    "units": "./bin/units",
     "functional": "NODE_ENV=test node test/functional.js | tap-spec",
     "lint": "jshint .",
     "validate": "npm ls",

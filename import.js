@@ -40,6 +40,7 @@ if( 'exitCode' in args ){
   }
 
   var files = parameters.getFileList(peliasConfig, args);
+  //anname ads csv faili ja mapime openaddresses kujule
 
   const importer_id = args['parallel-id'];
   let importer_name = 'openaddresses';

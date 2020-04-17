@@ -1,4 +1,3 @@
-const glob = require('glob');
 const child_process = require('child_process');
 const async = require('async');
 const fs = require('fs-extra');
@@ -42,13 +41,6 @@ function downloadBundle(targetDir, sourceUrl, callback) {
             (callback) => {
                 logger.debug(`unzipping ${tmpZipFile} to ${targetDir}`);
                 child_process.exec(`unzip -o -qq -d ${targetDir} ${tmpZipFile}`, callback);
-            },
-            // rename csv file
-            (callback) => {
-                glob(__dirname + `${targetDir}/*.csv`, {}, (err, files)=>{
-                    logger.debug(`renaming ${targetDir}/${files[0]}`);
-                    child_process.exec(`mv ${targetDir}/${files[0]} eesti.csv`, callback);
-                });
             },
             // delete the temp downloaded zip file
             fs.remove.bind(null, tmpZipFile)

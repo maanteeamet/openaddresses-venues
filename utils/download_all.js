@@ -1,4 +1,4 @@
-import * as glob from 'glob';
+const glob = require('glob');
 const child_process = require('child_process');
 const async = require('async');
 const fs = require('fs-extra');

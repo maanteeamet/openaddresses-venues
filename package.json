@@ -14,6 +14,7 @@
     "csv-parse": "^4.0.0",
     "fs-extra": "^8.1.0",
     "glob": "^7.0.0",
+    "iconv-lite": "^0.5.1",
     "lodash": "^4.16.0",
     "minimist": "^1.2.0",
     "pelias-blacklist-stream": "^1.0.0",
@@ -25,7 +26,8 @@
     "through2-filter": "^3.0.0",
     "through2-map": "^3.0.0",
     "through2-sink": "^1.0.0",
-    "tmp": "^0.1.0"
+    "tmp": "^0.1.0",
+    "transform-coordinates": "^0.1.0"
   },
   "devDependencies": {
     "jshint": "^2.9.4",

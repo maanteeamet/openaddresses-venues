@@ -3,6 +3,7 @@ const async = require('async');
 const fs = require('fs-extra');
 const tmp = require('tmp');
 const logger = require('pelias-logger').get('openaddresses-download');
+const request = require("request");
 
 function downloadAll(config, callback) {
     logger.info('Attempting to download all data');
@@ -15,7 +16,18 @@ function downloadAll(config, callback) {
             return callback(err);
         }
 
-        const dataHost = config.get('imports.openaddresses.dataHost') || 'https://data.openaddresses.io';
+        let dataHost = config.get('imports.openaddresses.dataHost') || 'https://data.openaddresses.io';
+
+        request(dataHost, function (error, response, body) {
+            if (error) {
+                return console.error('Failed, error: ' + error);
+            }
+            if (response) console.log('Got response from ' + dataHost + ', response: ' + response.statusCode);
+            if (body) {
+                let item = JSON.parse(body).filter(function(i){return i.vvnr === 18 && !('kov' in i);});
+                dataHost = dataHost + item[0].fail;
+            }
+        });
 
         async.each(
             [

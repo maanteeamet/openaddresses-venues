@@ -46,7 +46,8 @@
     "lint": "jshint .",
     "validate": "npm ls",
     "travis": "npm run test && npm run functional",
-    "start": "./bin/start"
+    "start": "./bin/start",
+    "test": "./bin/units"
   },
   "repository": {
     "type": "git",

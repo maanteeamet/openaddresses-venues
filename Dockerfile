@@ -16,8 +16,5 @@ RUN npm install
 # copy code into image
 ADD . ${WORKDIR}
 
-# run tests
-RUN npm test
-
 # run as the pelias user
 USER pelias

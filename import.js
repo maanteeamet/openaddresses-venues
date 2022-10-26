@@ -32,7 +32,7 @@ if( 'exitCode' in args ){
 } else {
   startTiming();
 
-  if (peliasConfig.imports.openaddresses.hasOwnProperty('adminLookup')) {
+  if (peliasConfig.imports['openaddresses-venues'].hasOwnProperty('adminLookup')) {
     logger.info('imports.openaddresses.adminLookup has been deprecated, ' +
                 'enable adminLookup using imports.adminLookup.enabled = true');
   }
@@ -41,7 +41,7 @@ if( 'exitCode' in args ){
   //anname ads csv faili ja mapime openaddresses kujule
 
   const importer_id = args['parallel-id'];
-  let importer_name = 'openaddresses';
+  let importer_name = 'openaddresses-venues';
 
   if (importer_id !== undefined) {
     importer_name = `openaddresses-${importer_id}`;

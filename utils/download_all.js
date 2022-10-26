@@ -26,15 +26,17 @@ function downloadAll(config, callback) {
             if (body) {
                 let item = JSON.parse(body).filter(function(i){return i.vvnr === 18 && !('kov' in i);});
                 dataHost = dataHost + item[0].fail;
+                console.log(dataHost);
+                async.each(
+                    [
+                        dataHost
+                    ],
+                    downloadBundle.bind(null, targetDir),
+                    callback);
             }
         });
 
-        async.each(
-            [
-                dataHost
-            ],
-            downloadBundle.bind(null, targetDir),
-            callback);
+
     });
 }
 

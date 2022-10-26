@@ -8,7 +8,7 @@ const request = require("request");
 function downloadAll(config, callback) {
     logger.info('Attempting to download all data');
 
-    const targetDir = config.imports.openaddresses.datapath;
+    const targetDir = config.imports['openaddresses-venues'].datapath;
 
     fs.ensureDir(targetDir, (err) => {
         if (err) {
@@ -16,7 +16,7 @@ function downloadAll(config, callback) {
             return callback(err);
         }
 
-        let dataHost = config.get('imports.openaddresses.dataHost') || 'https://data.openaddresses.io';
+        let dataHost = config.get('imports.openaddresses-venues.dataHost') || 'https://data.openaddresses.io';
 
         request(dataHost, function (error, response, body) {
             if (error) {
